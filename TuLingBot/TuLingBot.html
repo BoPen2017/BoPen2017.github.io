@@ -86,11 +86,9 @@
 			<div class="chatContent">
 				<div class="msg_robot">
 					<img src="http://img3.duitang.com/uploads/item/201411/13/20141113230257_Vj2rB.jpeg" alt="robot">
-					<p></p>
 				</div>
 				<div class="msg_mine">
-					<img src="http://image.biaobaiju.com/uploads/20181004/18/1538647382-vSnLXWVzEh.jpg" alt="myself">
-					<p></p>
+					<img src="http://img2.imgtn.bdimg.com/it/u=240629417,1236566253&fm=26&gp=0.jpg" alt="myself">
 				</div>
 			</div>
 			<input type="text">
@@ -157,7 +155,6 @@ var ajax = {
 				event() {
 					var that = this;
 					this.send.onclick = function () {
-						console.log('151')
 						that.chat();
 					}
 					document.onkeydown = function (e) {
@@ -180,20 +177,7 @@ var ajax = {
 						that.input.value = '';
 						console.log(content)
 						var obj = JSON.parse(content);
-						alert(obj.url);
 						var msgRoot = obj.text;
-						//判断图片信息
-						if (obj.url) {
-							msgRobot += "<a href='" + obj.url + "' target='_blank'>点我看图片.</a>";
-						}
-						//判断菜谱信息
-						if (obj.list && obj.code == "308000") {
-							msgRobot += " ①菜谱名字：" + obj.list[0].name + " ②菜谱原料：" + obj.list[0].info + " 做饭链接：" + "<a href='" + obj.list[0].detailurl + "' target='_blank'>点我看怎么做？</a>";
-						}
-						//判断新闻信息
-						if (obj.list && obj.code == "302000") {
-							msgRobot += " ①文章标题：" + obj.list[0].article + " ②文章来源：" + obj.list[0].source + " 做饭链接：" + "<a href='" + obj.list[0].detailurl + "' target='_blank'>点我看新闻.</a>";
-						}
 						var newNodeRoot=that.msg_robot.cloneNode(true);
 						newNodeRoot.lastElementChild.innerHTML=msgRoot;
 						newNodeRoot.style.display='block';
@@ -206,7 +190,7 @@ var ajax = {
 					  var top=content.scrollTop;
 					  content.scrollTop+=top+4;
 					  if (top==content.scrollTop) {
-						  setTimeout(step,20)
+						  setTimeout(step,20);
 					  }
 				  },0)
 				}
