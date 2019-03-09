@@ -171,7 +171,7 @@ var ajax = {
 					var sayContent = this.input.value;
 					//c3dc25fe245b4e88ae5810581e221d2d
 					var paras = "key=7e0c61672f674208a85f85f7ff08855f&userid=robot&info=" + sayContent;
-					ajax.post("http://www.tuling123.com/openapi/api", paras, function (content, xhr) {
+					ajax.post("https://www.tuling123.com/openapi/api", paras, function (content, xhr) {
 						var newNodeMine = that.msg_mine.cloneNode(true);
 						newNodeMine.lastElementChild.innerHTML = sayContent;
 						newNodeMine.style.display = 'block';
